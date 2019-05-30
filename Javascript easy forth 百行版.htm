@@ -1,0 +1,52 @@
+
+<!-- saved from url=(0044)http://www.jeforth.com/jeforth/1a/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Javascript easy forth</title>
+
+<style>
+ a {text-decoration:none}
+</style>
+</head>
+<body>
+
+<table><tbody><tr><td valign="bottom" widh="50%">
+<h2><a href="http://www.jeforth.com/">www.jeforth.com</a> 百行版 2012/2/17</h2>
+<input id="cmd" value="" size="40" onkeydown="if (13===event.keyCode) fortheval()"><button onclick="fortheval()">Run</button><br>
+<textarea id="output" cols="40" rows="10"></textarea>
+
+<script src="./Javascript easy forth_files/jeforth.js"></script>
+<script>
+  var vm=new JeForthVm();
+  var output=document.getElementById("output");
+  vm.ticktype=ticktype;  
+  
+  function fortheval() {
+    var cmd=document.getElementById("cmd");
+    vm.exec(cmd.value);
+  }
+  
+  function ticktype(t) {  output.value=output.value+t; }  // 輸出
+  
+  function setcode(me) {
+    var cmd=document.getElementById("cmd");
+    cmd.value=me.innerHTML.replace("&gt;",">"); // for r>
+  }
+</script>
+</td><td width="50%" valign="top">
+<table cellpadding="1" border="1"><tbody><tr bgcolor="silver"><td>觀念</td><td>關鍵字</td><td>指令(點選帶到指令行)</td><td>共90分鐘</td></tr>
+
+<tr><td>堆疊</td><td>stack </td><td><a href="#" onclick="setcode(this)">8</a></td><td align="center"><a href="jeforth1a_1.swf">教學</a></td></tr>
+<tr><td>字彙</td><td>words</td><td><a href="#" onclick="setcode(this)">dup * .</a></td><td align="center"><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_2.html">教學</a></td></tr>
+<tr><td>編譯 </td><td>dictionary</td><td><a href="#" onclick="setcode(this)">: sq dup * ;</a></td><td align="center" rowspan="2"><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_3.html">教學</a></td></tr>
+<tr><td>編譯高階字</td><td></td><td><a href="#" onclick="setcode(this)">: cube dup sq * ;</a></td></tr>
+<tr><td>巢狀呼叫</td><td>rstack</td><td><a href="#" onclick="setcode(this)">7 cube .</a></td><td align="center"><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_4.html">教學</a></td></tr>
+<tr><td>變數及位址</td><td>create</td><td><a href="#" onclick="setcode(this)">create a 10 , </a></td><td align="center" rowspan="3"><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_5.html">教學</a></td></tr> 
+<tr><td>取值</td><td>@</td><td><a href="#" onclick="setcode(this)">a @ .</a></td></tr> 
+<tr><td>賦值</td><td>!</td><td><a href="#" onclick="setcode(this)">20 a !</a></td></tr> 
+<tr><td>參數化編譯</td><td>does</td><td><a href="#" onclick="setcode(this)">: rate create , does r&gt; @ * . ;</a></td><td align="center" rowspan="3"><a href="http://www.jeforth.com/jeforth/1a/jeforth1a_6end.html">教學</a></td></tr>
+<tr><td>匯率範例</td><td>rate</td><td><a href="#" onclick="setcode(this)">30 rate usd</a></td></tr>
+<tr><td>美金匯率</td><td>usd</td><td><a href="#" onclick="setcode(this)">20 usd</a></td></tr>
+
+
+</tbody></table>
+
+</td></tr></tbody></table></body></html>
